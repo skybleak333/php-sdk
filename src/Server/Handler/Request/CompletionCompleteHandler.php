@@ -12,8 +12,8 @@
 namespace Mcp\Server\Handler\Request;
 
 use Mcp\Capability\Completion\ProviderInterface;
+use Mcp\Capability\ElementResolverInterface;
 use Mcp\Capability\Registry\ResourceTemplateReference;
-use Mcp\Capability\RegistryInterface;
 use Mcp\Exception\PromptNotFoundException;
 use Mcp\Exception\ResourceNotFoundException;
 use Mcp\Schema\JsonRpc\Error;
@@ -38,7 +38,7 @@ use Psr\Log\NullLogger;
 final class CompletionCompleteHandler implements RequestHandlerInterface
 {
     public function __construct(
-        private readonly RegistryInterface $registry,
+        private readonly ElementResolverInterface $registry,
         private readonly ?ContainerInterface $container = null,
         private readonly LoggerInterface $logger = new NullLogger(),
     ) {

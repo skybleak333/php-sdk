@@ -11,7 +11,7 @@
 
 namespace Mcp\Server\Stateless;
 
-use Mcp\Capability\RegistryInterface;
+use Mcp\Capability\ElementResolverInterface;
 use Mcp\Exception\ToolNotFoundException;
 use Mcp\Schema\Wire\McpHeader;
 
@@ -31,7 +31,7 @@ final class StandardHeaderValidator
     public const PARAM_HEADER_PREFIX = McpHeader::PARAM_PREFIX;
 
     public function __construct(
-        private readonly ?RegistryInterface $registry = null,
+        private readonly ?ElementResolverInterface $registry = null,
     ) {
     }
 

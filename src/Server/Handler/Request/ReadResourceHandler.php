@@ -11,9 +11,9 @@
 
 namespace Mcp\Server\Handler\Request;
 
+use Mcp\Capability\ElementResolverInterface;
 use Mcp\Capability\Registry\ReferenceHandlerInterface;
 use Mcp\Capability\Registry\ResourceTemplateReference;
-use Mcp\Capability\RegistryInterface;
 use Mcp\Exception\MissingRequiredClientCapabilityException;
 use Mcp\Exception\ResourceNotFoundException;
 use Mcp\Exception\ResourceReadException;
@@ -36,7 +36,7 @@ use Psr\Log\NullLogger;
 final class ReadResourceHandler implements RequestHandlerInterface
 {
     public function __construct(
-        private readonly RegistryInterface $referenceProvider,
+        private readonly ElementResolverInterface $referenceProvider,
         private readonly ReferenceHandlerInterface $referenceHandler,
         private readonly LoggerInterface $logger = new NullLogger(),
     ) {

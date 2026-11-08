@@ -11,7 +11,7 @@
 
 namespace Mcp\Server\Handler\Request;
 
-use Mcp\Capability\RegistryInterface;
+use Mcp\Capability\ElementCatalogInterface;
 use Mcp\Exception\InvalidCursorException;
 use Mcp\Schema\JsonRpc\Request;
 use Mcp\Schema\JsonRpc\Response;
@@ -28,7 +28,7 @@ use Mcp\Server\Session\SessionInterface;
 final class ListToolsHandler implements RequestHandlerInterface
 {
     public function __construct(
-        private readonly RegistryInterface $registry,
+        private readonly ElementCatalogInterface $registry,
         private readonly int $pageSize = 20,
     ) {
     }

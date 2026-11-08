@@ -12,8 +12,8 @@
 namespace Mcp\Server\Handler\Request;
 
 use Mcp\Capability\Discovery\SchemaValidator;
+use Mcp\Capability\ElementResolverInterface;
 use Mcp\Capability\Registry\ReferenceHandlerInterface;
-use Mcp\Capability\RegistryInterface;
 use Mcp\Exception\MissingRequiredClientCapabilityException;
 use Mcp\Exception\ToolCallException;
 use Mcp\Exception\ToolNotFoundException;
@@ -44,7 +44,7 @@ final class CallToolHandler implements RequestHandlerInterface
     private SchemaValidator $schemaValidator;
 
     public function __construct(
-        private readonly RegistryInterface $registry,
+        private readonly ElementResolverInterface $registry,
         private readonly ReferenceHandlerInterface $referenceHandler,
         private readonly LoggerInterface $logger = new NullLogger(),
         ?SchemaValidator $schemaValidator = null,

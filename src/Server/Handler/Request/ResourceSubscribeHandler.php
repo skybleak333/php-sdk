@@ -11,7 +11,7 @@
 
 namespace Mcp\Server\Handler\Request;
 
-use Mcp\Capability\RegistryInterface;
+use Mcp\Capability\ElementResolverInterface;
 use Mcp\Exception\ResourceNotFoundException;
 use Mcp\Schema\JsonRpc\Error;
 use Mcp\Schema\JsonRpc\Request;
@@ -33,7 +33,7 @@ use Psr\SimpleCache\InvalidArgumentException;
 final class ResourceSubscribeHandler implements RequestHandlerInterface
 {
     public function __construct(
-        private readonly RegistryInterface $registry,
+        private readonly ElementResolverInterface $registry,
         private readonly SubscriptionManagerInterface $subscriptionManager,
         private readonly LoggerInterface $logger = new NullLogger(),
     ) {

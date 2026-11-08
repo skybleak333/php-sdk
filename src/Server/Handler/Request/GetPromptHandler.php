@@ -11,8 +11,8 @@
 
 namespace Mcp\Server\Handler\Request;
 
+use Mcp\Capability\ElementResolverInterface;
 use Mcp\Capability\Registry\ReferenceHandlerInterface;
-use Mcp\Capability\RegistryInterface;
 use Mcp\Exception\MissingRequiredClientCapabilityException;
 use Mcp\Exception\PromptGetException;
 use Mcp\Exception\PromptNotFoundException;
@@ -34,7 +34,7 @@ use Psr\Log\NullLogger;
 final class GetPromptHandler implements RequestHandlerInterface
 {
     public function __construct(
-        private readonly RegistryInterface $registry,
+        private readonly ElementResolverInterface $registry,
         private readonly ReferenceHandlerInterface $referenceHandler,
         private readonly LoggerInterface $logger = new NullLogger(),
     ) {
