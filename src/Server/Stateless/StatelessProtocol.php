@@ -351,7 +351,7 @@ final class StatelessProtocol
     private function listen(?array $params, string|int $id, bool $paced = true): StatelessResult
     {
         $notifications = \is_array($params['notifications'] ?? null) ? $params['notifications'] : null;
-        $agreed = NotificationFilter::fromParams($notifications)->intersect($this->configuration->capabilities);
+        $agreed = NotificationFilter::fromParams($notifications)->intersect($this->configuration->capabilities());
 
         $lifetime = $this->subscriptionLifetime;
         $bus = $this->notificationBus;
